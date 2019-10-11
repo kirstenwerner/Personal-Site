@@ -16,6 +16,7 @@ import {
   Sidebar,
   Visibility,
   } from 'semantic-ui-react'
+import Selfie from './img/selfie.jpeg'
 
 const getWidth = () => {
   const isSSR = typeof window === 'undefined'
@@ -23,10 +24,6 @@ const getWidth = () => {
   return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
 }
 
-/* eslint-disable react/no-multi-comp */
-/* Heads up! HomepageHeading uses inline styling, however it's not the best practice. Use CSS or styled components for
- * such things.
- */
 const HomepageHeading = ({ mobile }) => (
   <div className="forest" >
   <Container text>
@@ -42,8 +39,10 @@ const HomepageHeading = ({ mobile }) => (
         as='h1'
         content='My Story'
         style={{
-          fontSize: mobile ? '2em' : '4em',
+          fontFamily: 'Amatic SC',
+          fontSize: mobile ? '2em' : '5em',
           fontWeight: 'normal',
+          color: 'black',
           // marginBottom: 0,
           marginTop: mobile ? '1.5em' : '1.5em',
         }}
@@ -52,8 +51,10 @@ const HomepageHeading = ({ mobile }) => (
         as='p'
         content='Environmental Chemist to Software Engineer'
         style={{
+          fontFamily: 'Amatic SC',
           fontSize: mobile ? '1.2em' : '1.5em',
-          fontWeight: 'normal',
+          fontWeight: 'bold',
+          color: 'pink',
           marginTop: mobile ? '0.5em' : '1.5em',
         }}
       />
@@ -188,90 +189,83 @@ ResponsiveContainer.propTypes = {
 
 const HomepageLayout = () => (
   <ResponsiveContainer>
-    <Segment style={{ padding: '8em 0em' }} vertical>
+    <Segment
+      inverted
+      style={{ padding: '6em 0em' }}
+      vertical
+    >
       <Grid container stackable verticalAlign='middle'>
         <Grid.Row>
           <Grid.Column width={8}>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-              We Help Companies and Companions
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>
-              We can give your company superpowers to do things that they never thought possible.
-              Let us delight your customers and empower your needs... through pure data analytics.
-            </p>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-              We Make Bananas That Can Dance
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>
-              Yes that's right, you thought it was the stuff of dreams, but even bananas can be
-              bioengineered.
-            </p>
+            <Image bordered rounded size='large' src={Selfie} />
+
           </Grid.Column>
-          <Grid.Column floated='right' width={6}>
-            <Image bordered rounded size='large' src='/images/wireframe/white-image.png' />
+          <Grid.Column floated='right' width={8}>
+            <Header
+              inverted
+              as='h3'
+              style={{
+                fontFamily: 'Amatic SC',
+                fontSize: '2em'
+              }}
+            >
+                Where I came from...
+            </Header>
+            <p style={{ fontSize: '1.33em' }}>
+              Raised in the Pacific Northwest, I’ve always been passionate about being outdoors, and by association, the environment.  Growing up hiking and camping, I naturally developed a respect for nature, and a sense of responsibility to do my part in its stewardship that led me from collecting money door-to-door to donate to ‘save the rainforest’ at 5 years old (admittedly a naive attempt), to receiving a Bachelor of Science in Environmental Science from Western Washington University.
+              <br />
+              <br />
+              Degree in hand, I worked for a number of years as an Analytical Chemist for food safety and environmental/agronomy laboratories. This experience allowed me to fine tune my problem solving skills, and to focus my attention to detail.
+            </p>
+            <Header
+              inverted
+              as='h3'
+              style={{
+                fontFamily: 'Amatic SC',
+                fontSize: '2em'
+              }}
+            >
+              A-ha!
+            </Header>
+            <p style={{ fontSize: '1.33em' }}>
+            The more I worked in the Hard Sciences, the more I realized that what interested me *more* than what was going on at the molecular level, was what we were doing with the information. How did we track it? How did we convey the data back to clients? Or better yet, to laymen? I realized that the most interesting data in the entire world, is only as useful as it is successfully communicated and utilized.
+            <br />
+            <br />
+            My interest in Software Engineering was born!
+            </p>
+
+            <Header
+              inverted
+              as='h3'
+              style={{
+                fontFamily: 'Amatic SC',
+                fontSize: '2em'
+              }}
+            >
+              Where I'm going...
+            </Header>
+            <p style={{ fontSize: '1.33em' }}>
+            I am excited to bring my analytical mind combined with my skills in developing in languages such as Ruby, Javascript, along with various frameworks and tools, to create apps that add value to the world around me.
+            <br />
+            <br />
+            Most recently, I have been working on the finishing touches of a React with Redux web application that allows users to locate recycle centers near them that accept whichever specific material the user is trying to dispose of.
+            <br />
+            <br />
+            I am looking forward to the opportunity to continue honing my skills as a developer, and to continue to build apps and programs that better this home we call Earth.
+            </p>
           </Grid.Column>
         </Grid.Row>
+
         <Grid.Row>
           <Grid.Column textAlign='center'>
-            <Button size='huge'>Check Them Out</Button>
+            <br />
+            <br />
+            <Button size='huge'>
+              <NavLink to='/portfolio' exact>See what I've been working on!</NavLink>
+            </Button>
           </Grid.Column>
         </Grid.Row>
       </Grid>
-    </Segment>
-    <Segment style={{ padding: '0em' }} vertical>
-      <Grid celled='internally' columns='equal' stackable>
-        <Grid.Row textAlign='center'>
-          <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-              "What a Company"
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>That is what they all say about us</p>
-          </Grid.Column>
-          <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-              "I shouldn't have gone with their competitor."
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>
-              <Image avatar src='/images/avatar/large/nan.jpg' />
-              <b>Nan</b> Chief Fun Officer Acme Toys
-            </p>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Segment>
-    <Segment style={{ padding: '8em 0em' }} vertical>
-      <Container text>
-        <Header as='h3' style={{ fontSize: '2em' }}>
-          Breaking The Grid, Grabs Your Attention
-        </Header>
-        <p style={{ fontSize: '1.33em' }}>
-          Instead of focusing on content creation and hard work, we have learned how to master the
-          art of doing nothing by providing massive amounts of whitespace and generic content that
-          can seem massive, monolithic and worth your attention.
-        </p>
-        <Button as='a' size='large'>
-          Read More
-        </Button>
-        <Divider
-          as='h4'
-          className='header'
-          horizontal
-          style={{ margin: '3em 0em', textTransform: 'uppercase' }}
-        >
-          <a href='#'>Case Studies</a>
-        </Divider>
-        <Header as='h3' style={{ fontSize: '2em' }}>
-          Did We Tell You About Our Bananas?
-        </Header>
-        <p style={{ fontSize: '1.33em' }}>
-          Yes I know you probably disregarded the earlier boasts as non-sequitur filler content, but
-          it's really true. It took years of gene splicing and combinatory DNA research, but our
-          bananas can really dance.
-        </p>
-        <Button as='a' size='large'>
-          I'm Still Quite Interested
-        </Button>
-      </Container>
     </Segment>
   </ResponsiveContainer>
 )
