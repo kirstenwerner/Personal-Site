@@ -26,7 +26,7 @@ const getWidth = () => {
 
 const HomepageHeading = ({ mobile }) => (
   <div className="forest" >
-  <Container text>
+  <Container>
     <Header style={{
       width: getWidth,
       height: 320,
@@ -61,7 +61,6 @@ const HomepageHeading = ({ mobile }) => (
     </Header>
   </Container>
   </div>
-
 )
 
 HomepageHeading.propTypes = {
@@ -186,6 +185,8 @@ const ResponsiveContainer = ({ children }) => (
 ResponsiveContainer.propTypes = {
   children: PropTypes.node,
 }
+
+
 
 const HomepageLayout = () => (
   <ResponsiveContainer>
