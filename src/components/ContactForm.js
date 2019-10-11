@@ -1,110 +1,173 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import {
-  // Button,
-  Container,
-  // Divider,
-  // Grid,
-  Header,
-  // Icon,
-  // Image,
-  // List,
-  // Menu,
-  Responsive,
-  Segment,
-  // Sidebar,
-  // Visibility,
-  } from 'semantic-ui-react';
+import React from 'react';
+import * as emailjs from 'emailjs-com';
+import 'jquery'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-export default class FeedbackForm extends Component {
-  state = {
-    feedback: '',
-    formSubmitted: false
-  };
+let container;
 
-  handleCancel = this.handleCancel.bind(this);
-  handleChange = this.handleChange.bind(this);
-  handleSubmit = this.handleSubmit.bind(this);
+export default class extends React.Component {
+  constructor(props) {
+  	super(props)
 
-  static sender = 'sender@example.com';
-
-  handleCancel() {
-    this.setState({
-      feedback: ''
-    });
+    this.state = {
+      name: '',
+      email: '',
+      feedback: '',
+      errors: {
+        name: '',
+        email_1: '',
+        email_2: '',
+        feedback: '',
+      }
+    }
   }
 
-  handleChange(event) {
-    this.setState({
-      feedback: event.target.value
-    });
+  handleInputChange (event) {
+    event.preventDefault()
+    const target = event.target
+    const name = target.name
+    const value = target.value
+
+    this.setState({[name]: value})
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  validateMail () {
+    let errors = {}
+    let formIsValid = true
 
-    const {
-      REACT_APP_EMAILJS_RECEIVER: receiverEmail,
-      REACT_APP_EMAILJS_TEMPLATEID: template
-    } = this.props.env;
+    if (!this.state.name || this.state.name.length < 3) {
+      errors.name = "I'd love it if your name was at least 3 characters long..."
+      toast.error(`${errors.name}`, {
+        position: toast.POSITION.BOTTOM_RIGHT
+      });
+      formIsValid = false
+    }
 
-    this.sendFeedback(
-      template,
-      this.sender,
-      receiverEmail,
-      this.state.feedback
-    );
+    if (!this.state.feedback || this.state.feedback.length < 10) {
+      errors.feedback = `C'mon, the body of your message should say SOMEthing!`
+      toast.error(`${errors.feedback}`, {
+        position: toast.POSITION.BOTTOM_RIGHT
+      });
+      formIsValid = false
+    }
+
+    if (!this.state.email || this.state.email.length < 3) {
+      errors.email_1 = 'Your email address has got to have at least 3 characters.'
+      toast.error(`${errors.email_1}`, {
+        position: toast.POSITION.BOTTOM_RIGHT
+      });
+      formIsValid = false
+    }
+
+    let pattern = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
+
+    if (!pattern.test(this.state.email)) {
+      errors.email_2 = 'Email addresses need an @ and a .com'
+      toast.error(`${errors.email_2}`, {
+        position: toast.POSITION.BOTTOM_RIGHT
+      });
+      formIsValid = false
+    }
 
     this.setState({
-      formSubmitted: true
-    });
+      errors: errors
+    })
+
+    console.log(errors)
+    return formIsValid
   }
 
-  sendFeedback(templateId, senderEmail, receiverEmail, feedback) {
-    window.emailjs
-      .send('mailgun', templateId, {
-        senderEmail,
-        receiverEmail,
-        feedback
-      })
-      .then(res => {
-        this.setState({
-          formEmailSent: true
+  sendMessage (event) {
+    event.preventDefault()
+
+    if (!this.validateMail()) {
+      return
+    }
+
+    const templateParams = {
+      from_name: this.state.name + '(' + this.state.email + ')',
+      to_name: 'kirstenmwerner@gmail.com',
+      feedback: this.state.feedback
+    }
+
+    emailjs.send('gmail', 'portfoliositecontact', templateParams, 'user_ZQYRt26t8ataC1aDEHvXx')
+      .then(function (response) {
+        toast.success("Your message has successfully sent!", {
+          position: toast.POSITION.BOTTOM_CENTER
         });
+        console.log('SUCCESS!', response.status, response.text)
+      }, function (err) {
+        toast.error('Your message was not able to be sent')
       })
-      // Handle errors here however you like
-      .catch(err => console.error('Failed to send feedback. Error: ', err));
+
+    this.setState({
+      name: '',
+      email: '',
+      feedback: ''
+    })
   }
 
   render() {
-    return (
-      <form class="ui form" onSubmit={this.handleSubmit}>
+	return (
+    <div>
+    <ToastContainer />
+  	<form
+      className="ui form"
+      id={this.props.id}
+      name={this.props.name}
+      method={this.props.method}
+      action={this.props.action}
+    >
         <textarea
-          className="text-input"
-          id="contact-entry"
-          name="contact-entry"
-          onChange={this.handleChange}
-          placeholder="What would you like to chat about?"
+          id="name"
+          name="name"
+          onChange={this.handleInputChange.bind(this)}
+          placeholder="your name"
           required
-          value={this.state.feedback}
+          value={this.state.name}
+          error={this.state.errors.name}
+          style={{width: '100%'}}
+          rows={1}
         />
+      <br />
+      <br />
+        <textarea
+        	id="email"
+        	name="email"
+        	onChange={this.handleInputChange.bind(this)}
+        	placeholder="your email address"
+        	required
+        	value={this.state.email}
+          error={this.state.errors.email}
+        	style={{width: '100%'}}
+          rows={1}
+      	/>
         <br />
         <br />
-        <div className="btn-group">
-          <button class="ui button" color='blue' onClick={this.handleCancel}>
-            Cancel
-          </button>
-          <button class="ui button" color="blue" type="submit" value="Send">
-            Send
-          </button>
-        </div>
-        <br />
-        <br />
-      </form>
-    );
-  }
+      	<textarea
+        	id="feedback"
+        	name="feedback"
+        	onChange={this.handleInputChange.bind(this)}
+        	placeholder="what would you like to chat about?"
+        	required
+        	value={this.state.feedback}
+          error={this.state.errors.feedback}
+        	style={{width: '100%', height: '250px'}}
+      	/>
+      <br />
+      <br />
+    	<input
+        type="button"
+        value="Send"
+        className="ui button"
+        style={{
+          fontFamily: 'Amatic SC',
+          fontSize: '20px',
+          color: 'blue'
+        }}
+        onClick={this.sendMessage.bind(this)} />
+  	</form>
+    </div>
+	)}
 }
-
-FeedbackForm.propTypes = {
-  env: PropTypes.object.isRequired
-};
