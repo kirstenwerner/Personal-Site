@@ -4,13 +4,20 @@
   "private": true,
   "dependencies": {
     "@trendmicro/react-sidenav": "^0.4.5",
+    "emailjs-com": "^2.4.0",
+    "jquery": "^3.4.1",
     "mdbreact": "^4.19.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.1",
-    "semantic-ui-react": "^0.87.3"
+    "react-spring": "^8.0.27",
+    "react-toastify": "^5.4.0",
+    "react-toastr": "^3.0.0",
+    "semantic-ui-react": "^0.87.3",
+    "toasted-notes": "^3.0.0",
+    "toastr": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
