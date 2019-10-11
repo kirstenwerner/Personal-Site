@@ -73,6 +73,8 @@ class DesktopContainer extends Component {
   hideFixedMenu = () => this.setState({ fixed: false })
   showFixedMenu = () => this.setState({ fixed: true })
 
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
   render() {
     const { children } = this.props
     const { fixed } = this.state
@@ -129,14 +131,18 @@ class MobileContainer extends Component {
           vertical
           visible={sidebarOpened}
         >
-          <Menu.Item as='a' active>
-            Home
+          <Menu.Item as='a' onClick={this.handleItemClick}>
+            <NavLink to='/' exact>ABOUT</NavLink>
           </Menu.Item>
-          <Menu.Item as='a'>Work</Menu.Item>
-          <Menu.Item as='a'>Company</Menu.Item>
-          <Menu.Item as='a'>Careers</Menu.Item>
-          <Menu.Item as='a'>Log in</Menu.Item>
-          <Menu.Item as='a'>Sign Up</Menu.Item>
+          <Menu.Item as='a' onClick={this.handleItemClick}>
+            <NavLink to='/portfolio' exact>PORTFOLIO</NavLink>
+          </Menu.Item>
+          <Menu.Item as='a' onClick={this.handleItemClick}>
+            <NavLink to='/resume' exact>RESUME</NavLink>
+          </Menu.Item>
+          <Menu.Item as='a' onClick={this.handleItemClick}>
+            <NavLink to='/contact' exact>CONTACT</NavLink>
+          </Menu.Item>
         </Sidebar>
 
         <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -146,21 +152,6 @@ class MobileContainer extends Component {
             style={{ minHeight: 350, padding: '1em 0em' }}
             vertical
           >
-            <Container>
-              <Menu inverted pointing secondary size='large'>
-                <Menu.Item onClick={this.handleToggle}>
-                  <Icon name='sidebar' />
-                </Menu.Item>
-                <Menu.Item position='right'>
-                  <Button as='a' inverted>
-                    Log in
-                  </Button>
-                  <Button as='a' inverted style={{ marginLeft: '0.5em' }}>
-                    Sign Up
-                  </Button>
-                </Menu.Item>
-              </Menu>
-            </Container>
             <HomepageHeading mobile />
           </Segment>
 
