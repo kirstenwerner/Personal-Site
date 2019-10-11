@@ -16,7 +16,7 @@ class ProjectCard extends Component  {
 
     let videoUrl = ""
     if (project.video){
-      videoUrl = <a href={project.demo}><i class="youtube icon big"></i></a>
+      videoUrl = <a href={project.video}><i class="youtube icon big"></i></a>
     }
 
     let githubLink = ""
