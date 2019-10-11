@@ -49,7 +49,15 @@ class NavBar extends Component {
               size='large'
             >
               <Container>
-                <Menu.Item><bold>KIRSTEN WERNER</bold></Menu.Item>
+                <Menu.Item
+                  as='p'
+                  style={{
+                    fontSize: '20px'
+                  }}
+                >
+                  KIRSTEN WERNER
+                </Menu.Item>
+
                 <Menu.Item
                   position='right'
                   name='about'
@@ -83,7 +91,7 @@ class NavBar extends Component {
                   <NavLink to='/contact' exact>CONTACT</NavLink>
                 </Menu.Item>
 
-                <a href="https://kirstenwerner.github.io"><Menu.Item
+                <a href="https://medium.com/kirsten-werner"><Menu.Item
                   // href='https://kirstenwerner.github.io'
                   name='blog'
                   as='a'
