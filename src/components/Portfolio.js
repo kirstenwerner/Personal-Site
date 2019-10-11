@@ -2,21 +2,16 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import React, { Component } from 'react';
 import ProjectCard from './ProjectCard.js';
-import RecycleIt from './img/RecycleIt.jpg'
+import RecycleIt from './img/RecycleIt.jpg';
+import Skillz from './img/Skillz.jpg';
+import Rememberall from './img/Rememberall.jpg';
+import WaSki from './img/WaSki.jpg'
 import {
-  // Button,
   Card,
   Container,
-  // Divider,
-  // Grid,
   Header,
-  // Icon,
-  // Image,
-  // List,
-  // Menu,
   Responsive,
   Segment,
-  // Sidebar,
   Visibility,
   } from 'semantic-ui-react'
 
@@ -50,103 +45,90 @@ class Portfolio extends Component {
         "Semantic React UI"
       ],
       github: {
-          frontEnd: "https://github.com/joanrig/congress_front_end",
-          backEnd: "https://github.com/joanrig/congress_api",
+          frontEnd: "https://github.com/kirstenwerner/recycle-it-frontend",
+          backEnd: "https://github.com/kirstenwerner/recycle-it-backend/tree/master",
           mono: ""
         },
-      video: "https://www.loom.com/share/7f2536bd3ee84514a88d96a6d242d46e",
-      notes: "A guessing game. Search and sort Congress members by party, gender and fun traits like most missed votes! Then guess who's who and click to reveal the answer. You can also search for bills. Built with React, Redux and Semantic React UI on the front end; and a Rails API, ActiveModel and Postgres on the back end.",
+      video: "https://www.youtube.com/watch?v=3LWdyHEK30Q&t=140s",
+      notes: "Enter your zip code and select a material from a searchable dropdown list to find a recycle center near you that accepts that material. Recycle center locations show as pins on a dynamic google map, and more information about the individual centers is shown when a pin is clicked on. Built with a Rails and PostgreSQL back-end, and a React with Redux front-end with Semantic UI styling.",
       blogPosts: [
         {
-          title: "Hey, Mr. Postman",
-          link: "https://medium.com/@joanrigdon/hey-mr-postman-f30b9662a786"
-        },
-        {
-          title: "Seeding your database from an external API",
-          link: "https://medium.com/@joanrigdon/rails-api-project-part-2-the-art-of-seeding-256a21747ab7"
-        },
-        {
-          title: "Adding a React-Redux front-end",
-          link: "https://medium.com/@joanrigdon/rails-api-project-part-3-adding-a-front-end-with-react-redux-be6ad25865d6"
-        },
-        {
-          title: "How I Deployed my React-on-Rails app to Heroku",
-          link: "https://medium.com/@joanrigdon/how-i-deployed-my-react-on-rails-app-to-heroku-9a07cee054e6"
-        },
-
+          title: "Using Semantic-ui-react to style your app",
+          link: "https://medium.com/kirsten-werner/using-semantic-ui-react-to-style-your-app-765ace1d3b8"
+        }
       ]
     }
 
 
     let skillzApp = {
       id: 2,
-      name: "Mars Rover Photo Finder",
-      // image: ,
-      type: "solo",
+      name: "Skillz Gym",
+      image: Skillz,
       tools: [
-        "React",
+        "Ruby on Rails",
+        "PostgreSQL",
         "Javascript",
-        "Semantic React UI",
       ],
       github: {
-          mono: "https://github.com/joanrig/mars_rover_pics"
+          mono: "https://github.com/kirstenwerner/skillz_app"
         },
-      video: "",
-      demo: "https://mars-rover-staging.herokuapp.com/",
-      notes: "Designed for curious kids of all ages, this app  includes basic information about the rovers, route maps, short videos and best of all, an easy way to filter more than 360,000 photos taken by NASA Rovers! Choose a Rover, a date and a camera and then click Get Photos to see amazing photography. Built with React.js. I experimented with using Event Emitters instead of Redux and had a lot of fun playing with timers and Semantic React UI's Transition element.",
+      video: "https://www.youtube.com/watch?v=mp4OY4_PI7Y&t=48s",
+      notes: "Skillz Gym is designed to allow the user to create and track daily workouts. 'Skillz' are stored in a database with a wealth of information, and then may be selected for a daily workout with a user-designed prescription. This app is built with Rails and PostgreSQL on the back-end, and Rails, JavaScript, JQuery, and CSS on the front-end. OAuth and Devise are used to allow third party login via FaceBook. Skillz Gym includes forms built in both JavaScript and Ruby on Rails.",
       blogPosts: [
         {
-          title: "Managing State with Event Emitters",
-          link: "https://medium.com/@joanrigdon/managing-state-with-event-emitters-f4125210b7d?sk=0a89f646ede6ef1c82d9fd961b0fe973"
+          title: "Updating my Rails app with JavaScript and using Prototype methods",
+          link: "https://medium.com/kirsten-werner/updating-my-rails-app-with-javascript-and-using-prototype-methods-ed49c80c4aa9"
+        },
+        {
+          title: "What I learned while writing an MVC web application with Ruby on Rails",
+          link: "https://medium.com/kirsten-werner/what-i-learned-while-writing-an-mvc-web-application-with-ruby-on-rails-3a0585e94884"
         }
       ]
     }
 
     let rememberall = {
       id: 3,
-      name: "Vacation Bidder",
-      // image: ,
-      type: "solo",
+      name: "Seattle Restaurant Rememberall",
+      image: Rememberall,
       tools: [
-        "Ruby on Rails",
-        "PostgreSQL",
-        "Javascript",
-        "Bootstrap",
-        "OmniAuth",
-        "Devise"
+        "Ruby",
+        "Sinatra"
       ],
       github: {
-          mono: "https://github.com/joanrig/vacation_bidder"
+          mono: "https://github.com/kirstenwerner/seattle_restaurant_rememberall"
         },
-      video: "https://www.loom.com/share/b46f1f2896d64e1d9f90be2968037326",
-      demo: "",
-      notes: "Add to your bucket list and then turn bucket list items into vacations. Add attractions and schedules to vacations. This is where I learned to secure logins, third-party login and conditional logic to render background pictures based on object attributes. Built with Rails, Javascript and Bootstrap on the front end; and Rails, ActiveModel and Postgres on the back end.",
+      video: "https://www.youtube.com/watch?v=2frjDOVQb14&t=14s",
+      // demo: "",
+      notes: "Made as the portfolio project for the Sinatra section of the Flatiron School online program. The app allows users to create an account to keep track of restaurants that they want to remember. Users can save restaurants that they want to remember to try, search, edit, and delete their own lists, view all restaurants entered by all other users, and search the entire database of entered restaurants by cuisine or neighborhood.",
       blogPosts: [
         {
-          title: "Nested Routes and Nested Forms",
-          link: "https://medium.com/@joanrigdon/rails-portfolio-project-vacation-bidder-part-1-db9cf4590141"
+          title: "Writing my first Sinatra web app - Seattle Restaurant Rememberall",
+          link: "https://medium.com/kirsten-werner/writing-my-first-sinatra-web-app-seattlerestaurantrememberall-a7fb4e03ce91"
         }
       ]
     }
 
     let skiReport = {
       id: 4,
-      name: "Hog Iron",
-      // image: ,
-      type: "group",
-      contributors: ["Lizzie Chan", "Vinh Do", "Bryn Bennet"],
+      name: "Washington Ski Report",
+      image: WaSki,
       github: {
-          mono: "https://github.com/joanrig/Hog-Iron"
+          mono: "https://github.com/kirstenwerner/washington_ski_report"
         },
       tools: [
-        "Ruby on Rails",
-        "PostgreSQL",
-        "Bootstrap"
+        "Ruby",
+        "CLI"
       ],
-      video: "",
-      demo: "https://hog-iron.herokuapp.com/",
-      notes: "A mock Harry Potter site where you can be sorted into a house and sign up for and drop classes. I contributed logic for the sorting hat and Boostrap styling for most pages. Built with Rails and Bootstrap on the front end and Rails, ActiveModel and Postgres on the back end.",
-      blogPosts: ""
+      video: "https://www.youtube.com/watch?v=vxdcRvjqmQY&t=6s",
+      // demo: "https://hog-iron.herokuapp.com/",
+      notes: "WashingtonSkiReport is a Ruby CLI Gem that allows the user to view a list of all of the ski resorts in Washington State, and to select to view more information about each resort, such as a bio, details about the resort, and weather/snow conditions where available.",
+      blogPosts: [
+        {
+          title: "Creating my first Ruby CLI gem",
+          link: "https://medium.com/kirsten-werner/creating-my-first-ruby-cli-gem-48e3f5f89222"
+        }
+      ]
+
     }
 
     let projects = [recycleIt, skillzApp, rememberall, skiReport]
@@ -179,6 +161,7 @@ class Portfolio extends Component {
                   inverted
                   content='My Projects'
                   style={{
+                    fontFamily: 'Amatic SC',
                     fontSize: '4em',
                     fontWeight: 'normal',
                     // marginBottom: 0,
