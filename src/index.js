@@ -10,11 +10,11 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 // import { createStore, applyMiddleware } from 'redux';
 // import thunk from 'redux-thunk';
 // import rootReducer from './reducers/rootReducer';
-// // import './semantic/dist/semantic.min.css';
-//
+// import './semantic/dist/semantic.min.css';
+
 // import { Provider } from 'react-redux';
 //
-// const store = createStore(rootReducer, applyMiddleware(thunk))
+// const store = createStore(applyMiddleware(thunk))
 //
 // ReactDOM.render(
 //   <Provider store={store} >
@@ -22,7 +22,7 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 //   </Provider>,
 //   document.getElementById('root')
 // )
-
+//
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
