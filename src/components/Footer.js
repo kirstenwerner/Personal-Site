@@ -43,40 +43,67 @@ class Footer extends Component {
           <Grid divided inverted stackable>
             <Grid.Row>
               <Grid.Column width={3}>
-                <Header inverted as='h4' content='Sitemap' />
+                <Header
+                  inverted
+                  as='h4'
+                  style={{
+                    fontFamily: 'Amatic SC',
+                    fontSize: '27px',
+                    fontWeight: 'bold'
+                  }}
+                  content='Sitemap' />
                 <List link inverted>
                   <List.Item as='a'>
-                    <NavLink to='/' exact>About</NavLink>
+                    <NavLink to='/'>About</NavLink>
                   </List.Item>
                   <List.Item as='a'>
-                    <NavLink to='/portfolio' exact>Portfolio</NavLink>
+                    <NavLink to='/portfolio'>Portfolio</NavLink>
                   </List.Item>
                   <List.Item as='a'>
-                    <NavLink to='/resume' exact>Resume</NavLink>
+                    <NavLink to='/resume'>Resume</NavLink>
                   </List.Item>
                 </List>
               </Grid.Column>
               <Grid.Column width={3}>
-                <Header inverted as='h4' content='Where you can find me' />
+                <Header
+                  inverted
+                  as='h4'
+                  style={{
+                    fontFamily: 'Amatic SC',
+                    fontSize: '27px',
+                    fontWeight: 'bold'
+                  }}
+                  content='Where you can find me' />
                 <List link inverted>
-                  <List.Item as='a'>
+                <List.Item>
+                  <a href='https://twitter.com/KirstenWerner8'>Twitter</a>
+                </List.Item>
+                  <List.Item>
                     <a href='https://www.linkedin.com/in/kirsten-werner/'>LinkedIn</a>
                   </List.Item>
-                  <List.Item as='a'>
-                    <a href='https://github.com/kirstenwerner' exact>Github</a>
+                  <List.Item>
+                    <a href='https://github.com/kirstenwerner'>Github</a>
                   </List.Item>
-                  <List.Item as='a'>
-                    <a href='https://kirstenwerner.github.io' exact>Blog</a>
+                  <List.Item>
+                    <a href='https://medium.com/kirsten-werner'>Blog</a>
                   </List.Item>
                 </List>
               </Grid.Column>
               <Grid.Column width={7}>
-                <Header as='h4' inverted>
+                <Header
+                  as='h4'
+                  inverted
+                  style={{
+                    fontFamily: 'Amatic SC',
+                    fontSize: '27px',
+                    fontWeight: 'bold'
+                  }}
+                >
                   Let's create something awesome together!
                 </Header>
                 <p>
                   <Button>
-                    <NavLink to='/contact' exact>Contact Me</NavLink>
+                    <NavLink to='/contact'>Contact Me</NavLink>
                   </Button>
                 </p>
               </Grid.Column>
