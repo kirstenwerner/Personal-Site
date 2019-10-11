@@ -1,19 +1,14 @@
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import React, { Component } from 'react';
 import {
-  // Button,
   Container,
-  // Divider,
-  // Grid,
   Header,
-  // Icon,
-  // Image,
-  // List,
-  // Menu,
   Responsive,
   Segment,
-  // Sidebar,
   Visibility,
   } from 'semantic-ui-react';
 import ContactForm from './ContactForm'
@@ -63,6 +58,7 @@ class Contact extends Component {
                   inverted
                   content='Say Hi!'
                   style={{
+                    fontFamily: 'Amatic SC',
                     fontSize: '4em',
                     fontWeight: 'normal',
                     // marginBottom: 0,
@@ -74,16 +70,17 @@ class Contact extends Component {
                     fontSize: '2em'
                   }}
                 >
-                  <a href="mailto: kirstenmwerner@gmail.com" ><i class="mail icon" /></a>
-                  <a href="https://www.linkedin.com/in/kirsten-werner/"><i class="linkedin icon" /></a>
-                  <a href="https://github.com/kirstenwerner" ><i class="github icon" /></a>
+                  <a href="https://twitter.com/KirstenWerner8" ><i className="twitter icon" /></a>
+                  <a href="https://www.linkedin.com/in/kirsten-werner/"><i className="linkedin icon" /></a>
+                  <a href="https://github.com/kirstenwerner" ><i className="github icon" /></a>
+                  <a href="https://medium.com/kirsten-werner"><i className="medium icon" /></a>
                 </Container>
-
                 <Header
                   as="h4"
                   inverted
                   content='Shoot me an email'
                   style={{
+                    fontFamily: 'Amatic SC',
                     fontSize: '2em',
                     fontWeight: 'normal',
                     textAlign: 'center',
@@ -91,25 +88,14 @@ class Contact extends Component {
                     opacity: '0.9',
                   }}
                 />
-
-                <Container
-                  style={{
-                    width: 800,
-                    marginBottom: '3em'
-                  }}
-                >
-                  <form class="ui form">
-                    <div class="field">
-                      <input type="text" name="email-address" placeholder="Email address" />
-                    </div>
-                  </form>
-                  <br / >
-                  <ContactForm />
+                <Container style={{width: 800, marginBottom: '3em'}}>
+                  <ToastContainer />
+                  <ContactForm id='contact-form' className='contact-form' name='contact-form' method='post' action='' />
                 </Container>
 
               </Header>
             </Container>
-            </div>
+          </div>
           </Segment>
         </Visibility>
       </Responsive>
