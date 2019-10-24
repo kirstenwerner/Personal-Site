@@ -39,24 +39,19 @@ export default class extends React.Component {
     if (!this.state.name || this.state.name.length < 3) {
       errors.name = "I'd love it if your name was at least 3 characters long..."
       toast.error(`${errors.name}`, {
-        position: toast.POSITION.BOTTOM_RIGHT
-      });
+        position: toast.POSITION.TOP_LEFT      });
       formIsValid = false
     }
 
     if (!this.state.feedback || this.state.feedback.length < 10) {
       errors.feedback = `C'mon, the body of your message should say SOMEthing!`
-      toast.error(`${errors.feedback}`, {
-        position: toast.POSITION.BOTTOM_RIGHT
-      });
+      toast.error(`${errors.feedback}`);
       formIsValid = false
     }
 
     if (!this.state.email || this.state.email.length < 3) {
       errors.email_1 = 'Your email address has got to have at least 3 characters.'
-      toast.error(`${errors.email_1}`, {
-        position: toast.POSITION.BOTTOM_RIGHT
-      });
+      toast.error(`${errors.email_1}`);
       formIsValid = false
     }
 
@@ -64,9 +59,7 @@ export default class extends React.Component {
 
     if (!pattern.test(this.state.email)) {
       errors.email_2 = 'Email addresses need an @ and a .com'
-      toast.error(`${errors.email_2}`, {
-        position: toast.POSITION.BOTTOM_RIGHT
-      });
+      toast.error(`${errors.email_2}`);
       formIsValid = false
     }
 
@@ -111,7 +104,6 @@ export default class extends React.Component {
   render() {
 	return (
     <div>
-    <ToastContainer />
   	<form
       className="ui form"
       id={this.props.id}

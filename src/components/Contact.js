@@ -89,7 +89,6 @@ class Contact extends Component {
                   }}
                 />
                 <Container style={{width: 800, marginBottom: '3em'}}>
-                  <ToastContainer />
                   <ContactForm id='contact-form' className='contact-form' name='contact-form' method='post' action='' />
                 </Container>
 
