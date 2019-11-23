@@ -114,17 +114,17 @@ export default class extends React.Component {
     return (
       <div>
         <form
-          className="ui form"
+          className='ui form'
           id={this.props.id}
           name={this.props.name}
           method={this.props.method}
           action={this.props.action}
         >
           <textarea
-            id="name"
-            name="name"
+            id='name'
+            name='name'
             onChange={this.handleInputChange.bind(this)}
-            placeholder="your name"
+            placeholder='your name'
             required
             value={this.state.name}
             error={this.state.errors.name}
@@ -134,10 +134,10 @@ export default class extends React.Component {
           <br />
           <br />
           <textarea
-            id="email"
-            name="email"
+            id='email'
+            name='email'
             onChange={this.handleInputChange.bind(this)}
-            placeholder="your email address"
+            placeholder='your email address'
             required
             value={this.state.email}
             error={this.state.errors.email}
@@ -147,10 +147,10 @@ export default class extends React.Component {
           <br />
           <br />
           <textarea
-            id="feedback"
-            name="feedback"
+            id='feedback'
+            name='feedback'
             onChange={this.handleInputChange.bind(this)}
-            placeholder="what would you like to chat about?"
+            placeholder='what would you like to chat about?'
             required
             value={this.state.feedback}
             error={this.state.errors.feedback}
@@ -159,9 +159,9 @@ export default class extends React.Component {
           <br />
           <br />
           <input
-            type="button"
-            value="Send"
-            className="ui button"
+            type='button'
+            value='Send'
+            className='ui button'
             style={{
               fontFamily: "Amatic SC",
               fontSize: "20px",
