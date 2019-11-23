@@ -1,6 +1,3 @@
-import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import React, { Component } from "react";
@@ -26,9 +23,6 @@ class Contact extends Component {
   showFixedMenu = () => this.setState({ fixed: true });
 
   render() {
-    const { children } = this.props;
-    const { fixed } = this.state;
-
     return (
       <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
         <Visibility

@@ -42,8 +42,6 @@ class NavBar extends Component {
             vertical
           >
             <Menu
-              pointing
-              secondary
               fixed={fixed ? "top" : null}
               inverted={!fixed}
               pointing={!fixed}

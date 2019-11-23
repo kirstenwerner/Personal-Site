@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
 import React, { Component } from "react";
 import { Container } from "semantic-ui-react";
 
@@ -10,9 +8,6 @@ class Resume extends Component {
   showFixedMenu = () => this.setState({ fixed: true });
 
   render() {
-    const { children } = this.props;
-    const { fixed } = this.state;
-
     return (
       <Container
         style={{

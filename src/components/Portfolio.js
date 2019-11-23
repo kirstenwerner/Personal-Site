@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
 import React, { Component } from "react";
 import ProjectCard from "./ProjectCard.js";
 import RecycleIt from "./img/RecycleIt.jpg";
@@ -28,9 +26,6 @@ class Portfolio extends Component {
   showFixedMenu = () => this.setState({ fixed: true });
 
   render() {
-    const { children } = this.props;
-    const { fixed } = this.state;
-
     let recycleIt = {
       id: 1,
       name: "Recycle It!",

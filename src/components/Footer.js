@@ -1,27 +1,14 @@
-import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import React, { Component } from "react";
 import {
   Button,
   Container,
-  Divider,
   Grid,
   Header,
-  Icon,
-  Image,
   List,
-  Menu,
   Responsive,
-  Segment,
-  Sidebar,
-  Visibility
+  Segment
 } from "semantic-ui-react";
-
-const getWidth = () => {
-  const isSSR = typeof window === "undefined";
-
-  return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth;
-};
 
 class Footer extends Component {
   state = { activeItem: "about" };
@@ -32,10 +19,6 @@ class Footer extends Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    const { children } = this.props;
-    const { fixed } = this.state;
-    const { activeItem } = this.state;
-
     return (
       <Responsive>
         <Segment inverted vertical style={{ padding: "5em 0em" }}>

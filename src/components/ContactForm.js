@@ -1,10 +1,9 @@
 import React from "react";
 import * as emailjs from "emailjs-com";
 import "jquery";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-let container;
 const EmailJSID = process.env.REACT_APP_EMAILJS_USERID;
 const Email_address = process.env.TO_NAME;
 
