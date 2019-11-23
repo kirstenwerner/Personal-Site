@@ -16,7 +16,15 @@ class ProjectCard extends Component  {
 
     let videoUrl = ""
     if (project.video){
-      videoUrl = <a href={project.video}><i class="youtube icon big"></i></a>
+      videoUrl = 
+        <a href={project.video}>
+          <Button
+            icon="youtube icon big"
+            data-tooltip="video walkthrough demo"
+            className="youtube-button"
+          />
+          {/* <i class="youtube icon big"></i> */}
+          </a>
     }
 
     let githubLink = ""
@@ -36,7 +44,7 @@ class ProjectCard extends Component  {
         <a href={project.demo}>
           <Button
             icon="large desktop"
-            data-tooltip="demo"
+            data-tooltip="website"
             className="demo-button"
           />
         </a>

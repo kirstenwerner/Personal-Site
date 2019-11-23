@@ -44,6 +44,7 @@ class Portfolio extends Component {
         "JavaScript",
         "Semantic React UI"
       ],
+      demo: "https://recycle-it-app.herokuapp.com",
       github: {
           frontEnd: "https://github.com/kirstenwerner/recycle-it-frontend",
           backEnd: "https://github.com/kirstenwerner/recycle-it-backend/tree/master",
